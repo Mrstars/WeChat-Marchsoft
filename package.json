@@ -13,9 +13,17 @@
     "axios": "^0.16.2",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.1",
+    "gulp-watch": "^4.3.11",
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "vue": "^2.1.10",
+    "vue-loader": "^11.3.4",
+    "vue-resource": "^1.0.3",
+    "vue-router": "^2.4.0",
+    "vue-template-compiler": "^2.1.4"
+  },
+  "dependencies": {
+    "cnpm": "^5.1.1"
   }
 }
