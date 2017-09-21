@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
@@ -12,11 +11,8 @@
 
 </head>
 <body>
-<div id="app">
-    <example></example>
-
-</div>
-
-<script src="{{ asset('js/app.js') }}"></script>
+{{ dd($errors->all()) }}
+@foreach($errors->all() as $error)
+    {{ $error }}
+    @endforeach
 </body>
-</html>

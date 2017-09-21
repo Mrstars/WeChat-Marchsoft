@@ -62,11 +62,6 @@ class newsModel extends Model
              ->paginate(10,['idmarch_news','news_title','news_publisher','news_date','news_stick']);
     }
 
-    public function updateNews($id,$title,$connect,$news_stick){
-        //更新文章
-        return newsModel::where('idmarch_news',$id)->update(['news_date'=>$title,'news_content'=>$connect,'news_stick'=>$news_stick]);
-    }
-
     public function deleteNews($id){
         //删除文章
         return newsModel::where('idmarch_news',$id)->delete();
@@ -75,10 +70,16 @@ class newsModel extends Model
 
     public function addNews(Request $request){
         //添加文章
-        $stick = $this->getNews_stick()->news_stick;
        return  newsModel::create(['news_title'=>$request->input('title'),
                 'news_content'=>$request->input('content'),'news_date'=>date('Y-m-d H:i:s'),'news_publisher'=>Session::input('admin'),
-                'news_type'=>1,'news_num'=>0,'active_type'=>006,'news_stick'=>$stick]);
+                'news_type'=>1,'news_num'=>0,'active_type'=>006,'news_stick'=>$request->input('stick')]);
     }
+
+    public function updateNew(Request $request){
+        //更新文章
+        return newsModel::where('idmarch_news',$request->input('id'))->update(['news_title'=>$request->input('title'),
+            'news_content'=>$request->input('content'), 'news_stick'=>$request->input('isUp')]);
+    }
+
 
 }

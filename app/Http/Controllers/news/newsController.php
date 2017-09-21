@@ -12,7 +12,8 @@ namespace App\Http\Controllers\news;
 use App\newsModel;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
+
 
 class newsController
 {
@@ -55,6 +56,27 @@ class newsController
 
     }
 
+    public function deleteNew(Request $request){
 
+        $validator = Validator::make($request->all(),['id'=>'required|integer'],
+            ['required'=>':attribute为空','integer'=>':attribute必须为数字'],
+            ['id'=>'文章编号']);
+        if ($validator->fails()){
+            return redirect()->back()->withErrors($validator);
+        }
+        $this->newsModel->deleteNews($request->input('id'));
+    }
+
+    public function updateNew(Request $request){
+
+        $validator = Validator::make($request->all(),['id'=>'required|integer','isUp'=>'integer|max:1','title'=>'required|max:45','content'=>'required']
+            ,['required'=>':attribute为空','max'=>':attribute过长','integer'=>':attribute必须为数字']
+            ,['isUp'=>'置顶','title'=>'标题','content'=>'内容','id'=>'编号']);
+        if($validator->fails()){
+            return redirect('index')->withInput()->withErrors($validator);
+        }
+        $this->newsModel->updateNew($request);
+
+    }
 
 }
