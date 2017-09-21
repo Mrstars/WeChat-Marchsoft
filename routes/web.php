@@ -22,6 +22,7 @@ Route::group(['middleware'=>['loginVerification']],function (){
     Route::get('/update','news\newsController@updateNew');
 }
 );
+//
 
 
 
