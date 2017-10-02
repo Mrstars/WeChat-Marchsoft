@@ -52,4 +52,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Download project
 
-git clont 
+git clont https://github.com/Mrstars/WeChat-Marchsoft.git branch
+
+## Install
+
+composer install
+
+npm install
+
+## Function
+
+npm run watch/dev
