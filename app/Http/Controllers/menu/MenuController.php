@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class MenuController extends Controller
 {
 
-    public function  addMenu(){
+    public static function  addMenu(){
         $wechat = app('wechat');
         $buttons = [
             [

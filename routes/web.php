@@ -11,8 +11,20 @@
 |
 */
 Route::any('/server','ServerController@servers');
-Route::any('/upimg','material\MaterialController@upupup');
-Route::get('/getFirst','news\newsController@getFrist');
-Route::get('/getNew','news\newsController@getNew');
+Route::any('/index', function () {
+    return view('newsIndex');
+});
+Route::group(['middleware'=>['loginVerification']],function (){
+    Route::post('/login','LoginController@login');
+    Route::get('/getFirst','news\newsController@getFrist');
+    Route::get('/getNew','news\newsController@getNew');
+    Route::get('/getNews','news\newsController@getNews');
+    Route::get('/delete','news\newsController@deleteNew');
+    Route::get('/update','news\newsController@updateNew');
+}
+);
+//
+
+
 
 

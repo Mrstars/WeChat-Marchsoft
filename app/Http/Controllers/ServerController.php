@@ -23,11 +23,12 @@ class ServerController extends Controller
         $server->setMessageHandler(function($message) use($wechat){
             if($message->MsgType=='event'){
                 if($message->Event=='subscribe'){
-                    return '欢迎';
+                    MenuController::addMenu();
+                    return '欢迎关注三月';
                 }elseif($message->EventKey=='V1000_GOOD'){
-
+                    
                 }elseif ($message->EventKey=='V1001_GOOD'){
-
+                             
                 }elseif ($message->EventKey=='V1002_GOOD'){
 
                 }elseif ($message->EventKey=='V1003_GOOD'){

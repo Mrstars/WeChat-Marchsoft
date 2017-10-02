@@ -1,4 +1,3 @@
-
 <template >
 <div class="one">
         <form  class="from" method="post"  action="Logining" @submit.prevent="submit">

@@ -13,7 +13,8 @@ use App\Users;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
+
 
 class LoginController extends Controller
 {
@@ -31,7 +32,7 @@ class LoginController extends Controller
             ['required'=>':attribute为空','max'=>':attribute过长','integer'=>':attribute必须为数字'],
             ['username'=>'手机号码','password'=>'密码']);
         if ($validator->fails()){
-            return redirect()->back()->withInput()->withErrors($validator);
+            return redirect('index')->withInput()->withErrors($validator);
         }
         $name = $this->userModel->queryUser($request);
         if(sizeof($name)){
@@ -43,6 +44,6 @@ class LoginController extends Controller
 
     public function loginOut(){
         Session::forget('name');
-        return redirect('login');
+        return redirect('loginout');
     }
 }

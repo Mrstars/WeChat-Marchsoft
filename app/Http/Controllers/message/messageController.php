@@ -19,9 +19,9 @@ class messageController
 
         $news = new News();
         $news->title = '每周一闻';
-        $news->description = 'tttttttt';
-        $news->image ="http://testlhb.ngrok.cc/1.jpg";
-        $news->url = 'www.baidu.com';
+        $news->description = '微信图片上传服务有敏感检测系统，图片内容如果含有敏感内容，如色情，商品推广，虚假信息等，上传可能失败。';
+        $news->image ="http://wangaimin.ngrok.cc/image/1.jpeg";
+        $news->url = 'wangaimin.ngrok.cc/index';
         return $news;
     }
 
