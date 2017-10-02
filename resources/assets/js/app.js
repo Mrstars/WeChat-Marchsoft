@@ -17,6 +17,12 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 
+import elementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+import router from './router/router.js'
+Vue.use(elementUI)
+
 const app = new Vue({
     el: '#app',
+    router
 });
