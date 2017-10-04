@@ -11,8 +11,6 @@
         </div>
     </form>
 </template>
-
-
 <script type="text/javascript">
     import E from 'wangeditor'
     var editor;
@@ -29,7 +27,7 @@
      }
     },
      mounted(){
-         editor =new E('#editorElem')
+         // editor =new E('#editorElem')
         editor.customConfig.onchange = (html) =>{
             this.editorContent=html
         }
